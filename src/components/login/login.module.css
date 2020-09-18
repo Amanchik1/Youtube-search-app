@@ -1,0 +1,14 @@
+.wrapper{
+    text-align: center;
+    margin-top: 70px;
+}
+.enter{
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 35px auto 15px auto;
+    color: #000000;
+
+}
