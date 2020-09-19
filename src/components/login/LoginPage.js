@@ -1,8 +1,11 @@
 import React from 'react'
-import {Form, Input, Button} from 'antd';
+import {Form, Input, Button, message} from 'antd';
 import logo from '../../img/sibdev-logo.png'
 import 'antd/dist/antd.css';
 import css from './login.module.css'
+import {useAuth} from "../../hooks/useAuth";
+import {useDispatch} from "react-redux";
+import {initialize} from "../../state/appReducer";
 
 const layout = {
     labelCol: {
@@ -23,8 +26,23 @@ const tailLayout = {
 };
 
 const Login = () => {
+    let auth = useAuth()
+    const dispatch = useDispatch()
     const onFinish = (values) => {
-        console.log('Success:', values);
+        let res = auth(values)
+        console.log(res)
+        if(res.length){
+            dispatch(initialize({
+                isAuth: true
+            }))
+            localStorage.setItem("userData", JSON.stringify({
+                token: res[0].token,
+                userName: res[0].userName,
+                links: [...res[0].links],
+            }))
+        }else{
+            message.error('Пользователь не найден')
+        }
     };
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
