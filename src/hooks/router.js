@@ -3,7 +3,7 @@ import {Redirect, Route, Switch} from "react-router-dom";
 import LoginPage from "../components/login/LoginPage";
 import Menu from "../components/menu/Menu";
 import SearchPage from "../components/searchPage/searchPage";
-
+import SavedPage from "../components/savedPage/savedPage";
 
 export const useRouter = (isAuth) => {
     if (isAuth) {
@@ -15,8 +15,8 @@ export const useRouter = (isAuth) => {
                         <Route exact path={'/main'}>
                             <SearchPage />
                         </Route>
-                        <Route exact path={'/saved'}>
-                            Saved page
+                        <Route path={'/saved'}>
+                            <SavedPage />
                         </Route>
                         <Redirect to={'/main'}/>
                     </Switch>

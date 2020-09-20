@@ -57,6 +57,12 @@
     right: 10px;
     cursor: pointer;
 }
+.list{
+    display: flex;
+}
+.list>div{
+    margin: 0 0 0 60px;
+}
 .videos{
     margin: 25px 0;
     display: grid;
@@ -67,6 +73,11 @@
     /*flex-flow: wrap;*/
     /*justify-content: space-between;*/
 }
+.videosList{
+    grid-template-columns: 1fr !important;
+    justify-items: baseline;
+}
+
 .filterBy{
     font-family: Roboto;
     font-style: normal;
@@ -80,6 +91,14 @@
 }
 .filterWrapper{
     margin: 25px 0 10px 0;
+    display: flex;
+    justify-content: space-between;
+}
+.filters>svg{
+    cursor: pointer;
+}
+.row{
+    margin-right: 10px;
 }
 .video__title{
     overflow: hidden;
