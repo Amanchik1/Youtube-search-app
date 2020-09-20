@@ -8,13 +8,21 @@ const {Option} = Select;
 
 
 const SavedPage = () => {
-    let userData = JSON.parse(localStorage.getItem('userData'))
+    const [links, setLinks] = useState([])
+    useEffect(()=>{
+       update()
+    },[])
+    const update = () => {
+        let userData = JSON.parse(localStorage.getItem('userData'))
+        console.log(userData)
+        setLinks([...userData.links])
+    }
     return (
         <div>
             <h1 className={css.text}>Избранное</h1>
             <div className={css.list}>
                 {
-                    userData.links.map((item, index) => <Request key={item.req} index={index} req={item.name} />)
+                    links.map((item, index) => <Request update={update} key={item.req} index={index} req={item.name} />)
                 }
             </div>
         </div>
@@ -57,6 +65,7 @@ const Request = (props) => {
         }
         localStorage.setItem('userData', JSON.stringify(data))
         setVisible(false)
+        props.update()
     }
     const handleCancel = () => {
         setVisible(false)
