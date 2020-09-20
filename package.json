@@ -2,7 +2,7 @@
   "name": "search_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/Amanchik1/Youtube-search-app",
+  "homepage": "http://Amanchik1.github.io/Youtube-search-app",
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
